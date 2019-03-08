@@ -1,0 +1,25 @@
+# zoom.us Plugin #
+
+## Overview ##
+
+This plug-in streamlines the process of joining Zoom meetings.
+
+## Actions ##
+
+Join Meeting
+  : This actions works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the Next Zoom Meeting proxy object described below.
+
+Join Zoom Meeting
+  : This action is available for text. Enter a meeting ID, or any string that contains a meeting URL, and this action should be available to join the meeting.
+
+    Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s `zoommtg://` URL scheme, which bypasses your browser and opens directly in Zoom.
+
+## Proxy Objects ##
+
+### Next Zoom Meeting ###
+
+This proxy represents any Zoom Meeting occurring in the next 10 minutes. Simply select it and hit Return to join.
+
+The number of minutes can be adjusted using a hidden preference. For example, to change it to 30 minutes:
+
+    defaults write com.blacktree.Quicksilver ZoomCheckForwardMinutes 30

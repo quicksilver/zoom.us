@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>zoom.us Plugin</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.qsapp.ZoomPlugin</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>QSActions</key>
+	<dict>
+		<key>QSZoomJoinMeeting</key>
+		<dict>
+			<key>actionClass</key>
+			<string>QSZoomActionProvider</string>
+			<key>actionSelector</key>
+			<string>join:</string>
+			<key>commandFormat</key>
+			<string>Join %@</string>
+			<key>directTypes</key>
+			<array>
+				<string>QSZoomMeetingType</string>
+			</array>
+			<key>name</key>
+			<string>Join Meeting</string>
+			<key>precedence</key>
+			<real>3.0</real>
+		</dict>
+		<key>QSZoomJoinMeetingWithID</key>
+		<dict>
+			<key>actionClass</key>
+			<string>QSZoomActionProvider</string>
+			<key>actionSelector</key>
+			<string>joinWithID:</string>
+			<key>commandFormat</key>
+			<string>Join Zoom Meeting: %@</string>
+			<key>directTypes</key>
+			<array>
+				<string>public.utf8-plain-text</string>
+			</array>
+			<key>icon</key>
+			<string>com.zoom.xos</string>
+			<key>name</key>
+			<string>Join Zoom Meeting</string>
+			<key>validatesObjects</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>QSDefaults</key>
+	<dict>
+		<key>ZoomCheckForwardMinutes</key>
+		<integer>10</integer>
+	</dict>
+	<key>QSPlugIn</key>
+	<dict>
+		<key>author</key>
+		<string>Rob McBroom</string>
+		<key>categories</key>
+		<array>
+			<string>Calendar</string>
+		</array>
+		<key>description</key>
+		<string>Interact with zoom.us</string>
+		<key>extendedDescription</key>
+		<string>&lt;h1&gt;zoom.us Plugin&lt;/h1&gt;
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This plug-in streamlines the process of joining Zoom meetings.&lt;/p&gt;
+&lt;h2&gt;Actions&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Join Meeting&lt;/dt&gt;
+&lt;dd&gt;This actions works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the Next Zoom Meeting proxy object described below.&lt;/dd&gt;
+&lt;dt&gt;Join Zoom Meeting&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;This action is available for text. Enter a meeting ID, or any string that contains a meeting URL, and this action should be available to join the meeting.&lt;/p&gt;
+&lt;p&gt;Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s &lt;code&gt;zoommtg://&lt;/code&gt; URL scheme, which bypasses your browser and opens directly in Zoom.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;Proxy Objects&lt;/h2&gt;
+&lt;h3&gt;Next Zoom Meeting&lt;/h3&gt;
+&lt;p&gt;This proxy represents any Zoom Meeting occurring in the next 10 minutes. Simply select it and hit Return to join.&lt;/p&gt;
+&lt;p&gt;The number of minutes can be adjusted using a hidden preference. For example, to change it to 30 minutes:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;defaults write com.blacktree.Quicksilver ZoomCheckForwardMinutes 30
+&lt;/code&gt;&lt;/pre&gt;</string>
+		<key>icon</key>
+		<string>us.zoom.xos</string>
+		<key>relatedBundles</key>
+		<array>
+			<string>us.zoom.xos</string>
+		</array>
+	</dict>
+	<key>QSPresetAdditionsDisabled</key>
+	<array>
+		<dict>
+			<key>ID</key>
+			<string>QSPresetZoomUpcoming</string>
+			<key>enabled</key>
+			<true/>
+			<key>icon</key>
+			<string>us.zoom.xos</string>
+			<key>name</key>
+			<string>Upcoming Zoom Meetings</string>
+			<key>source</key>
+			<string>QSZoomSource</string>
+		</dict>
+	</array>
+	<key>QSRegistration</key>
+	<dict>
+		<key>QSObjectHandlers</key>
+		<dict>
+			<key>QSZoomMeetingType</key>
+			<string>QSZoomSource</string>
+		</dict>
+		<key>QSObjectSources</key>
+		<dict>
+			<key>QSZoomSource</key>
+			<string>QSZoomSource</string>
+		</dict>
+		<key>QSProxies</key>
+		<dict>
+			<key>NextZoomMeetingProxy</key>
+			<dict>
+				<key>icon</key>
+				<string>us.zoom.xos</string>
+				<key>name</key>
+				<string>Next Zoom Meeting</string>
+				<key>providerClass</key>
+				<string>QSZoomSource</string>
+				<key>types</key>
+				<array>
+					<string>QSZoomMeetingType</string>
+				</array>
+			</dict>
+		</dict>
+		<key>QSTypeDefinitions</key>
+		<dict>
+			<key>QSZoomMeetingType</key>
+			<dict>
+				<key>icon</key>
+				<string>us.zoom.xos</string>
+				<key>name</key>
+				<string>Zoom Meeting</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>QSRequirements</key>
+	<dict>
+		<key>bundles</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>us.zoom.xos</string>
+				<key>name</key>
+				<string>zoom.us</string>
+			</dict>
+		</array>
+		<key>version</key>
+		<string>4012</string>
+	</dict>
+</dict>
+</plist>

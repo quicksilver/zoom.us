@@ -1,0 +1,259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D40604822231797600531D7E /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40604812231797600531D7E /* EventKit.framework */; };
+		D4098BDB2232C64E00F6AB8F /* QSZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = D4098BDA2232C64E00F6AB8F /* QSZoom.m */; };
+		D434B7751FC8FFC7007AF9C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D434B7741FC8FFC7007AF9C3 /* Cocoa.framework */; };
+		D434B7811FC8FFC7007AF9C3 /* QSZoomSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D434B7801FC8FFC7007AF9C3 /* QSZoomSource.m */; };
+		D4E47FDC2231E2DE00F190DF /* QSZoomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E47FDB2231E2DE00F190DF /* QSZoomAction.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D40604812231797600531D7E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		D4060483223179A200531D7E /* QSZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSZoom.h; sourceTree = "<group>"; };
+		D4098BDA2232C64E00F6AB8F /* QSZoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSZoom.m; sourceTree = "<group>"; };
+		D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zoom.us Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D434B7741FC8FFC7007AF9C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		D434B77F1FC8FFC7007AF9C3 /* QSZoomSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSZoomSource.h; sourceTree = "<group>"; };
+		D434B7801FC8FFC7007AF9C3 /* QSZoomSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSZoomSource.m; sourceTree = "<group>"; };
+		D46888911FC903AC00797047 /* Developer.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
+		D46888921FC903AC00797047 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		D46888931FC903AC00797047 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		D46888941FC903AC00797047 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		D46888951FC903AC00797047 /* Quicksilver.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
+		D46888961FC903AC00797047 /* QSPlugIn.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = QSPlugIn.xcconfig; sourceTree = "<group>"; };
+		D4E47FDA2231E2DE00F190DF /* QSZoomAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSZoomAction.h; sourceTree = "<group>"; };
+		D4E47FDB2231E2DE00F190DF /* QSZoomAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSZoomAction.m; sourceTree = "<group>"; };
+		D4EF80261FC9004F0025F5EA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D434B76E1FC8FFC7007AF9C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D40604822231797600531D7E /* EventKit.framework in Frameworks */,
+				D434B7751FC8FFC7007AF9C3 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D434B7671FC8FFC7007AF9C3 = {
+			isa = PBXGroup;
+			children = (
+				D46888901FC903AC00797047 /* Configuration */,
+				D434B7761FC8FFC7007AF9C3 /* QSZoom */,
+				D434B7731FC8FFC7007AF9C3 /* Frameworks */,
+				D434B7721FC8FFC7007AF9C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D434B7721FC8FFC7007AF9C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.qsplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D434B7731FC8FFC7007AF9C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D40604812231797600531D7E /* EventKit.framework */,
+				D434B7741FC8FFC7007AF9C3 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D434B7761FC8FFC7007AF9C3 /* QSZoom */ = {
+			isa = PBXGroup;
+			children = (
+				D4EF80261FC9004F0025F5EA /* Info.plist */,
+				D4060483223179A200531D7E /* QSZoom.h */,
+				D4098BDA2232C64E00F6AB8F /* QSZoom.m */,
+				D434B77F1FC8FFC7007AF9C3 /* QSZoomSource.h */,
+				D434B7801FC8FFC7007AF9C3 /* QSZoomSource.m */,
+				D4E47FDA2231E2DE00F190DF /* QSZoomAction.h */,
+				D4E47FDB2231E2DE00F190DF /* QSZoomAction.m */,
+			);
+			path = QSZoom;
+			sourceTree = "<group>";
+		};
+		D46888901FC903AC00797047 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D46888911FC903AC00797047 /* Developer.xcconfig */,
+				D46888921FC903AC00797047 /* Common.xcconfig */,
+				D46888931FC903AC00797047 /* Debug.xcconfig */,
+				D46888941FC903AC00797047 /* Release.xcconfig */,
+				D46888951FC903AC00797047 /* Quicksilver.pch */,
+				D46888961FC903AC00797047 /* QSPlugIn.xcconfig */,
+			);
+			name = Configuration;
+			path = /private/tmp/QS/Configuration;
+			sourceTree = "<absolute>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D434B7701FC8FFC7007AF9C3 /* zoom.us Plugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D434B7851FC8FFC7007AF9C3 /* Build configuration list for PBXNativeTarget "zoom.us Plugin" */;
+			buildPhases = (
+				D434B76C1FC8FFC7007AF9C3 /* ShellScript */,
+				D434B76D1FC8FFC7007AF9C3 /* Sources */,
+				D434B76E1FC8FFC7007AF9C3 /* Frameworks */,
+				D434B76F1FC8FFC7007AF9C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "zoom.us Plugin";
+			productName = QSZoom;
+			productReference = D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.qsplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D434B7681FC8FFC7007AF9C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Quicksilver;
+				TargetAttributes = {
+					D434B7701FC8FFC7007AF9C3 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = D434B76B1FC8FFC7007AF9C3 /* Build configuration list for PBXProject "QSZoom" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D434B7671FC8FFC7007AF9C3;
+			productRefGroup = D434B7721FC8FFC7007AF9C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D434B7701FC8FFC7007AF9C3 /* zoom.us Plugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D434B76F1FC8FFC7007AF9C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D434B76C1FC8FFC7007AF9C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"$QS_BUILD_ROOT/Tools/bltrversion\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D434B76D1FC8FFC7007AF9C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4E47FDC2231E2DE00F190DF /* QSZoomAction.m in Sources */,
+				D4098BDB2232C64E00F6AB8F /* QSZoom.m in Sources */,
+				D434B7811FC8FFC7007AF9C3 /* QSZoomSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D434B7831FC8FFC7007AF9C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D46888931FC903AC00797047 /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		D434B7841FC8FFC7007AF9C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D46888941FC903AC00797047 /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		D434B7861FC8FFC7007AF9C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D46888961FC903AC00797047 /* QSPlugIn.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/QSZoom/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		D434B7871FC8FFC7007AF9C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D46888961FC903AC00797047 /* QSPlugIn.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/QSZoom/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D434B76B1FC8FFC7007AF9C3 /* Build configuration list for PBXProject "QSZoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D434B7831FC8FFC7007AF9C3 /* Debug */,
+				D434B7841FC8FFC7007AF9C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D434B7851FC8FFC7007AF9C3 /* Build configuration list for PBXNativeTarget "zoom.us Plugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D434B7861FC8FFC7007AF9C3 /* Debug */,
+				D434B7871FC8FFC7007AF9C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D434B7681FC8FFC7007AF9C3 /* Project object */;
+}
