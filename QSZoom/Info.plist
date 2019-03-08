@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSZoomJoinMeeting</key>
@@ -50,7 +50,7 @@
 				<string>public.utf8-plain-text</string>
 			</array>
 			<key>icon</key>
-			<string>com.zoom.xos</string>
+			<string>us.zoom.xos</string>
 			<key>name</key>
 			<string>Join Zoom Meeting</string>
 			<key>validatesObjects</key>
