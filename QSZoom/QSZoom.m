@@ -23,6 +23,7 @@ QSObject *objectFromEvent(EKEvent *event, NSString *meetingID) {
 	[meeting setName:[event title]];
 	[meeting setObject:meetingID forMeta:kZoomMeetingID];
 	[meeting setObject:urlString forType:QSURLType];
+	[meeting setObject:urlString forType:QSTextType];
 	[meeting setObject:event forType:QSZoomMeetingType];
 	[meeting setPrimaryType:QSZoomMeetingType];
 	return meeting;
