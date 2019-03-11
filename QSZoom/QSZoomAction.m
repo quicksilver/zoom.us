@@ -16,8 +16,8 @@
 		NSBeep();
 		return nil;
 	}
-	NSString *meetingID = [dObject objectForMeta:kZoomMeetingID];
-	NSURL *url = zoomURLWithID(meetingID);
+	NSString *meetingURLString = [dObject objectForType:QSURLType];
+	NSURL *url = [NSURL URLWithString:meetingURLString];
 	if (url) {
 		[[NSWorkspace sharedWorkspace] openURL:url];
 	} else {
