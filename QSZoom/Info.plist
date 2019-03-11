@@ -88,10 +88,18 @@
 &lt;/dl&gt;
 &lt;h2&gt;Proxy Objects&lt;/h2&gt;
 &lt;h3&gt;Next Zoom Meeting&lt;/h3&gt;
-&lt;p&gt;This proxy represents any Zoom Meeting occurring in the next 10 minutes. Simply select it and hit Return to join.&lt;/p&gt;
+&lt;p&gt;This proxy represents any Zoom Meeting&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; occurring in the next 10 minutes. Simply select it and hit Return to join. You can also share it with others using Paste, E-mail To…, and other actions.&lt;/p&gt;
 &lt;p&gt;The number of minutes can be adjusted using a hidden preference. For example, to change it to 30 minutes:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;defaults write com.blacktree.Quicksilver ZoomCheckForwardMinutes 30
-&lt;/code&gt;&lt;/pre&gt;</string>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class="footnote"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;The plug-in will look for a Zoom URL in the location, URL, and Notes for all upcoming events. The first match it finds will be used.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</string>
 		<key>icon</key>
 		<string>us.zoom.xos</string>
 		<key>relatedBundles</key>

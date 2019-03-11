@@ -18,8 +18,10 @@ Join Zoom Meeting
 
 ### Next Zoom Meeting ###
 
-This proxy represents any Zoom Meeting occurring in the next 10 minutes. Simply select it and hit Return to join.
+This proxy represents any Zoom Meeting[^1] occurring in the next 10 minutes. Simply select it and hit Return to join. You can also share it with others using Paste, E-mail To…, and other actions.
 
 The number of minutes can be adjusted using a hidden preference. For example, to change it to 30 minutes:
 
     defaults write com.blacktree.Quicksilver ZoomCheckForwardMinutes 30
+
+[^1]: The plug-in will look for a Zoom URL in the location, URL, and Notes for all upcoming events. The first match it finds will be used.
