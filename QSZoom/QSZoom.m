@@ -10,6 +10,12 @@
 
 #pragma mark Helpers
 
+NSURL *zoomURLWithID(NSString *meetingID) {
+	NSString *meetingURL = [NSString stringWithFormat:ZoomURLFormat, meetingID];
+	NSURL *url = [NSURL URLWithString:meetingURL];
+	return url;
+}
+
 QSObject *objectFromEvent(EKEvent *event, NSString *meetingID) {
 	NSString *ident = [NSString stringWithFormat:ZoomIDFormat, meetingID];
 	QSObject *meeting = [QSObject makeObjectWithIdentifier:ident];

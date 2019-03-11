@@ -8,12 +8,6 @@
 #import "QSZoom.h"
 #import "QSZoomAction.h"
 
-NSURL *zoomURLWithID(NSString *meetingID) {
-	NSString *meetingURL = [NSString stringWithFormat:ZoomURLFormat, meetingID];
-	NSURL *url = [NSURL URLWithString:meetingURL];
-	return url;
-}
-
 @implementation QSZoomActionProvider
 
 - (QSObject *)join:(QSObject *)dObject

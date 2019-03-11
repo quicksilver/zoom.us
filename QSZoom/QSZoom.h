@@ -14,6 +14,7 @@
 
 #import <EventKit/EventKit.h>
 
+NSURL *zoomURLWithID(NSString *meetingID);
 QSObject *objectFromEvent(EKEvent *event, NSString *meetingID);
 NSString *meetingIDFromString(NSString *sourceText);
 NSString *meetingIDFromEvent(EKEvent *event);
