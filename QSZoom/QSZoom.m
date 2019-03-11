@@ -18,9 +18,11 @@ NSURL *zoomURLWithID(NSString *meetingID) {
 
 QSObject *objectFromEvent(EKEvent *event, NSString *meetingID) {
 	NSString *ident = [NSString stringWithFormat:ZoomIDFormat, meetingID];
+	NSString *urlString = [zoomURLWithID(meetingID) absoluteString];
 	QSObject *meeting = [QSObject makeObjectWithIdentifier:ident];
 	[meeting setName:[event title]];
 	[meeting setObject:meetingID forMeta:kZoomMeetingID];
+	[meeting setObject:urlString forType:QSURLType];
 	[meeting setObject:event forType:QSZoomMeetingType];
 	[meeting setPrimaryType:QSZoomMeetingType];
 	return meeting;
