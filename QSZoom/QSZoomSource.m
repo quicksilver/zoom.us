@@ -63,8 +63,20 @@
 	NSDate *cutoff = [NSDate dateWithTimeIntervalSinceNow:interval];
 	NSPredicate *query = [store predicateForEventsWithStartDate:now endDate:cutoff calendars:nil];
 	NSArray *events = [store eventsMatchingPredicate:query];
-	if ([events count]) {
-		EKEvent *targetEvent = events[0];
+	NSUInteger eventCount = [events count];
+	if (eventCount) {
+		EKEvent *targetEvent;
+		if (eventCount == 1) {
+			targetEvent = events[0];
+		} else {
+			// pick the event that hasn't started
+			for (EKEvent *upcomingEvent in events) {
+				if ([upcomingEvent startDate] >= now) {
+					targetEvent = upcomingEvent;
+					break;
+				}
+			}
+		}
 		NSString *meetingID = meetingIDFromEvent(targetEvent);
 		if (meetingID) {
 			return objectFromEvent(targetEvent, meetingID);
