@@ -35,7 +35,7 @@
 	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 	if ([[object primaryType] isEqualToString:QSProxyType]) {
 		QSObject *meeting = [object resolvedObject];
-		if (meeting) {
+		if ([meeting containsType:QSZoomMeetingType]) {
 			EKEvent *event = [meeting objectForType:QSZoomMeetingType];
 			NSString *start = [dateFormatter stringFromDate:[event startDate]];
 			return [NSString stringWithFormat:@"%@ at %@", [meeting name], start];
@@ -70,6 +70,12 @@
 			return objectFromEvent(targetEvent, meetingID);
 		}
 	}
-	return nil;
+	return [QSObject objectWithString:@"No Upcoming Meeting"];
 }
+
+- (NSArray *)typesForProxyObject:(id)proxy
+{
+	return [[proxy resolvedObject] types];
+}
+
 @end

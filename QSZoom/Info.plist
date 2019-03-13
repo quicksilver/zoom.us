@@ -144,10 +144,6 @@
 				<string>Next Zoom Meeting</string>
 				<key>providerClass</key>
 				<string>QSZoomSource</string>
-				<key>types</key>
-				<array>
-					<string>QSZoomMeetingType</string>
-				</array>
 			</dict>
 		</dict>
 		<key>QSTypeDefinitions</key>
