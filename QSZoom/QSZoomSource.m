@@ -59,9 +59,9 @@
 	NSUInteger minutesForward = [[defaults valueForKey:kForwardMinutes] integerValue];
 	NSUInteger interval = minutesForward * 60;
 	EKEventStore *store = [[EKEventStore alloc] initWithAccessToEntityTypes:EKEntityMaskEvent];
-	NSDate *start = [NSDate date];
-	NSDate *end = [NSDate dateWithTimeIntervalSinceNow:interval];
-	NSPredicate *query = [store predicateForEventsWithStartDate:start endDate:end calendars:nil];
+	NSDate *now = [NSDate date];
+	NSDate *cutoff = [NSDate dateWithTimeIntervalSinceNow:interval];
+	NSPredicate *query = [store predicateForEventsWithStartDate:now endDate:cutoff calendars:nil];
 	NSArray *events = [store eventsMatchingPredicate:query];
 	if ([events count]) {
 		EKEvent *targetEvent = events[0];
