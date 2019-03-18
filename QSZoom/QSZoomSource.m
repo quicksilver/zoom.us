@@ -71,7 +71,7 @@
 		} else {
 			// pick the event that hasn't started
 			for (EKEvent *upcomingEvent in events) {
-				if ([upcomingEvent startDate] >= now) {
+				if ([[upcomingEvent startDate] compare:now] == NSOrderedDescending) {
 					targetEvent = upcomingEvent;
 					break;
 				}
