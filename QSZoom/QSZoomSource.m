@@ -33,15 +33,15 @@
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateStyle:NSDateFormatterNoStyle];
 	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-	if ([object isProxyObject]) {
-		QSObject *meeting = [object resolvedObject];
-		if ([meeting containsType:QSZoomMeetingType]) {
-			EKEvent *event = [meeting objectForType:QSZoomMeetingType];
-			NSString *start = [dateFormatter stringFromDate:[event startDate]];
-			return [NSString stringWithFormat:@"%@ at %@", [meeting name], start];
-		}
-		return @"No Upcoming Meeting";
-	}
+//	if ([object isProxyObject]) {
+//		QSObject *meeting = [object resolvedObject];
+//		if ([meeting containsType:QSZoomMeetingType]) {
+//			EKEvent *event = [meeting objectForType:QSZoomMeetingType];
+//			NSString *start = [dateFormatter stringFromDate:[event startDate]];
+//			return [NSString stringWithFormat:@"%@ at %@", [meeting name], start];
+//		}
+//		return @"No Upcoming Meeting";
+//	}
 	if (object) {
 		EKEvent *event = [object objectForType:QSZoomMeetingType];
 		NSString *start = [dateFormatter stringFromDate:[event startDate]];
