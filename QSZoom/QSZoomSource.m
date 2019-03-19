@@ -33,7 +33,7 @@
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateStyle:NSDateFormatterNoStyle];
 	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-	if ([[object primaryType] isEqualToString:QSProxyType]) {
+	if ([object isProxyObject]) {
 		QSObject *meeting = [object resolvedObject];
 		if ([meeting containsType:QSZoomMeetingType]) {
 			EKEvent *event = [meeting objectForType:QSZoomMeetingType];
