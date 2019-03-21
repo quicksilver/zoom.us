@@ -40,13 +40,7 @@
 			NSString *start = [dateFormatter stringFromDate:[event startDate]];
 			return [NSString stringWithFormat:@"%@ at %@", [meeting name], start];
 		}
-		return @"No Upcoming Meeting";
-	}
-	if (object) {
-		EKEvent *event = [object objectForType:QSZoomMeetingType];
-		NSString *start = [dateFormatter stringFromDate:[event startDate]];
-		NSString *end = [dateFormatter stringFromDate:[event endDate]];
-		return [NSString stringWithFormat:@"%@ – %@", start, end];
+		return nil;
 	}
 	return nil;
 }

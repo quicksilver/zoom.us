@@ -26,6 +26,12 @@ QSObject *objectFromEvent(EKEvent *event, NSString *meetingID) {
 	[meeting setObject:urlString forType:QSTextType];
 	[meeting setObject:event forType:QSZoomMeetingType];
 	[meeting setPrimaryType:QSZoomMeetingType];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateStyle:NSDateFormatterNoStyle];
+	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	NSString *start = [dateFormatter stringFromDate:[event startDate]];
+	NSString *end = [dateFormatter stringFromDate:[event endDate]];
+	[meeting setDetails:[NSString stringWithFormat:@"%@ – %@", start, end]];
 	return meeting;
 }
 
