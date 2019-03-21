@@ -57,24 +57,26 @@
 	NSDate *cutoff = [NSDate dateWithTimeIntervalSinceNow:interval];
 	NSPredicate *query = [store predicateForEventsWithStartDate:now endDate:cutoff calendars:nil];
 	NSArray *events = [store eventsMatchingPredicate:query];
-	NSUInteger eventCount = [events count];
-	if (eventCount) {
-		EKEvent *targetEvent;
-		if (eventCount == 1) {
-			targetEvent = events[0];
-		} else {
-			// pick the event that hasn't started
-			for (EKEvent *upcomingEvent in events) {
-				if ([[upcomingEvent startDate] compare:now] == NSOrderedDescending) {
-					targetEvent = upcomingEvent;
-					break;
-				}
-			}
+	// pick the zoom event that hasn't started
+	EKEvent *targetEvent = nil;
+	NSString *targetID;
+	for (EKEvent *upcomingEvent in events) {
+		NSString *meetingID = meetingIDFromEvent(upcomingEvent);
+		if (!meetingID) {
+			// skip events with no Zoom URL
+			continue;
 		}
-		NSString *meetingID = meetingIDFromEvent(targetEvent);
-		if (meetingID) {
-			return objectFromEvent(targetEvent, meetingID);
+		if ([[upcomingEvent startDate] compare:now] == NSOrderedDescending) {
+			// prefer an event in the future
+			targetID = meetingID;
+			targetEvent = upcomingEvent;
+			break;
 		}
+		targetID = meetingID;
+		targetEvent = upcomingEvent;
+	}
+	if (targetEvent) {
+		return objectFromEvent(targetEvent, targetID);
 	}
 	return [QSObject objectWithString:@"No Upcoming Meeting"];
 }
