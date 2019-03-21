@@ -81,7 +81,7 @@
 
 - (NSArray *)typesForProxyObject:(id)proxy
 {
-	return [[proxy resolvedObject] types];
+	return [[proxy objectForCache:QSProxyTargetCache] types];
 }
 
 @end
