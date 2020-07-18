@@ -10,15 +10,26 @@
 
 #pragma mark Helpers
 
-NSURL *zoomURLWithID(NSString *meetingID) {
-	NSString *meetingURL = [NSString stringWithFormat:ZoomURLFormat, meetingID];
+// Zoom URL Scheme Documentation
+// https://marketplace.zoom.us/docs/guides/guides/client-url-schemes
+
+NSURL *zoomURLWithData(NSDictionary *meetingData) {
+	NSString *host = meetingData[kMeetingHost];
+	NSString *meetingID = meetingData[kMeetingID];
+	NSString *meetingArgs = meetingID;
+	NSString *meetingParams = meetingData[kMeetingParams];
+	if (meetingParams) {
+		meetingArgs = [NSString stringWithFormat:@"%@&%@", meetingID, meetingParams];
+	}
+	NSString *meetingURL = [NSString stringWithFormat:ZoomURLFormat, host, meetingArgs];
 	NSURL *url = [NSURL URLWithString:meetingURL];
 	return url;
 }
 
-QSObject *objectFromEvent(EKEvent *event, NSString *meetingID) {
+QSObject *objectFromEvent(EKEvent *event, NSDictionary *meetingData) {
+	NSString *meetingID = meetingData[kMeetingID];
 	NSString *ident = [NSString stringWithFormat:ZoomIDFormat, meetingID];
-	NSString *urlString = [zoomURLWithID(meetingID) absoluteString];
+	NSString *urlString = [zoomURLWithData(meetingData) absoluteString];
 	QSObject *meeting = [QSObject makeObjectWithIdentifier:ident];
 	[meeting setName:[event title]];
 	[meeting setObject:meetingID forMeta:kZoomMeetingID];
@@ -35,19 +46,25 @@ QSObject *objectFromEvent(EKEvent *event, NSString *meetingID) {
 	return meeting;
 }
 
-NSString *meetingIDFromString(NSString *sourceText) {
-	NSRegularExpression *zoomURL = [NSRegularExpression regularExpressionWithPattern:@".*zoom\\.us/.*[=/](\\d+)$" options:NSRegularExpressionAnchorsMatchLines error:nil];
+NSDictionary *meetingDataFromString(NSString *sourceText) {
+	NSRegularExpression *zoomURL = [NSRegularExpression regularExpressionWithPattern:@"^http[s?]:.*zoom\\.us/.*" options:NSRegularExpressionAnchorsMatchLines error:nil];
 	NSRange range = NSMakeRange(0, [sourceText length]);
-	NSTextCheckingResult *result = [zoomURL firstMatchInString:sourceText options:0 range:range];
-	if ([result numberOfRanges] == 2) {
-		NSRange matchLocation = [result rangeAtIndex:1];
-		NSString *meetingID = [sourceText substringWithRange:matchLocation];
-		return meetingID;
+	if ([zoomURL numberOfMatchesInString:sourceText options:0 range:range]) {
+		// looks like a Zoom URL
+		NSURL *meetingURL = [NSURL URLWithString:sourceText];
+		NSMutableDictionary *meetingData = [NSMutableDictionary dictionaryWithCapacity:3];
+		meetingData[kMeetingID]	 = [meetingURL lastPathComponent];
+		meetingData[kMeetingHost]  = [meetingURL host];
+		NSString *query = [meetingURL query];
+		if (query) {
+			meetingData[kMeetingParams]	 = query;
+		}
+		return meetingData;
 	}
 	return nil;
 }
 
-NSString *meetingIDFromEvent(EKEvent *event) {
+NSDictionary *meetingDataFromEvent(EKEvent *event) {
 	NSMutableArray *searchFields = [NSMutableArray arrayWithCapacity:3];
 	if ([event URL]) {
 		[searchFields addObject:[[event URL] absoluteString]];
@@ -59,9 +76,9 @@ NSString *meetingIDFromEvent(EKEvent *event) {
 		[searchFields addObject:[event notes]];
 	}
 	for (NSString *field in searchFields) {
-		NSString *meetingID = meetingIDFromString(field);
-		if (meetingID) {
-			return meetingID;
+		NSDictionary *meetingData = meetingDataFromString(field);
+		if (meetingData) {
+			return meetingData;
 		}
 	}
 	return nil;

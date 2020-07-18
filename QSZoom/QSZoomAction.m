@@ -28,16 +28,15 @@
 
 - (QSObject *)joinWithID:(QSObject *)dObject
 {
-	NSString *meetingID = [dObject stringValue];
-	NSString *idFromString = meetingIDFromString(meetingID);
-	if (idFromString) {
-		meetingID = idFromString;
-	}
-	NSURL *url = zoomURLWithID(meetingID);
-	if (url) {
-		[[NSWorkspace sharedWorkspace] openURL:url];
-	} else {
-		NSLog(@"error with meeting: %@", meetingID);
+	NSString *meetingInfo = [dObject stringValue];
+	NSDictionary *dataFromString = meetingDataFromString(meetingInfo);
+	if (dataFromString) {
+		NSURL *url = zoomURLWithData(dataFromString);
+		if (url) {
+			[[NSWorkspace sharedWorkspace] openURL:url];
+		} else {
+			NSLog(@"error with meeting: %@", meetingInfo);
+		}
 	}
 	return nil;
 }

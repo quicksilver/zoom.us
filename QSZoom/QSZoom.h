@@ -6,15 +6,18 @@
 //
 
 #define QSZoomMeetingType @"QSZoomMeetingType"
-#define ZoomURLFormat @"zoommtg://zoom.us/join?confno=%@"
+#define ZoomURLFormat @"zoommtg://%@/join?action=join&confno=%@"
 #define ZoomIDFormat @"ZoomMeeting:%@"
 #define kZoomMeetingID @"ZoomMeetingID"
 #define kForwardMinutes @"ZoomCheckForwardMinutes"
 #define JoinMeetingWithIDAction @"QSZoomJoinMeetingWithID"
+#define kMeetingID @"id"
+#define kMeetingHost @"host"
+#define kMeetingParams @"params"
 
 #import <EventKit/EventKit.h>
 
-NSURL *zoomURLWithID(NSString *meetingID);
-QSObject *objectFromEvent(EKEvent *event, NSString *meetingID);
-NSString *meetingIDFromString(NSString *sourceText);
-NSString *meetingIDFromEvent(EKEvent *event);
+NSURL *zoomURLWithData(NSDictionary *meetingData);
+QSObject *objectFromEvent(EKEvent *event, NSDictionary *meetingData);
+NSDictionary *meetingDataFromString(NSString *sourceText);
+NSDictionary *meetingDataFromEvent(EKEvent *event);

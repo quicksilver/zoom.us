@@ -59,24 +59,24 @@
 	NSArray *events = [store eventsMatchingPredicate:query];
 	// pick the zoom event that hasn't started
 	EKEvent *targetEvent = nil;
-	NSString *targetID;
+	NSDictionary *targetData;
 	for (EKEvent *upcomingEvent in events) {
-		NSString *meetingID = meetingIDFromEvent(upcomingEvent);
-		if (!meetingID) {
+		NSDictionary *meetingData = meetingDataFromEvent(upcomingEvent);
+		if (!meetingData) {
 			// skip events with no Zoom URL
 			continue;
 		}
 		if ([[upcomingEvent startDate] compare:now] == NSOrderedDescending) {
 			// prefer an event in the future
-			targetID = meetingID;
+			targetData = meetingData;
 			targetEvent = upcomingEvent;
 			break;
 		}
-		targetID = meetingID;
+		targetData = meetingData;
 		targetEvent = upcomingEvent;
 	}
 	if (targetEvent) {
-		return objectFromEvent(targetEvent, targetID);
+		return objectFromEvent(targetEvent, targetData);
 	}
 	return [QSObject objectWithString:@"No Upcoming Meeting"];
 }
