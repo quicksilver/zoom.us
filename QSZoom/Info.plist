@@ -77,12 +77,9 @@
 &lt;h2&gt;Actions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Join Meeting&lt;/dt&gt;
-&lt;dd&gt;This actions works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the Next Zoom Meeting proxy object described below.&lt;/dd&gt;
+&lt;dd&gt;This action works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the &lt;strong&gt;Next Zoom Meeting&lt;/strong&gt; proxy object described below.&lt;/dd&gt;
 &lt;dt&gt;Join Zoom Meeting&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;This action is available for text. Enter a meeting ID, or any string that contains a meeting URL, and this action should be available to join the meeting.&lt;/p&gt;
-&lt;p&gt;Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s &lt;code&gt;zoommtg://&lt;/code&gt; URL scheme, which bypasses your browser and opens directly in Zoom.&lt;/p&gt;
-&lt;/dd&gt;
+&lt;dd&gt;Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s &lt;code&gt;zoommtg://&lt;/code&gt; URL scheme, which bypasses your browser and opens directly in Zoom.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2&gt;Proxy Objects&lt;/h2&gt;
 &lt;h3&gt;Next Zoom Meeting&lt;/h3&gt;

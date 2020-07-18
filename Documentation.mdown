@@ -7,7 +7,7 @@ This plug-in streamlines the process of joining Zoom meetings.
 ## Actions ##
 
 Join Meeting
-  : This actions works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the Next Zoom Meeting proxy object described below.
+  : This action works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the **Next Zoom Meeting** proxy object described below.
 
 Join Zoom Meeting
   : Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s `zoommtg://` URL scheme, which bypasses your browser and opens directly in Zoom.
