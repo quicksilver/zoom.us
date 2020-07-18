@@ -47,14 +47,12 @@
 			<string>Join Zoom Meeting: %@</string>
 			<key>directTypes</key>
 			<array>
-				<string>public.utf8-plain-text</string>
+				<string>Apple URL pasteboard type</string>
 			</array>
 			<key>icon</key>
 			<string>us.zoom.xos</string>
 			<key>name</key>
 			<string>Join Zoom Meeting</string>
-			<key>validatesObjects</key>
-			<true/>
 		</dict>
 	</dict>
 	<key>QSDefaults</key>

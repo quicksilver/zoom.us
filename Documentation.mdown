@@ -10,9 +10,7 @@ Join Meeting
   : This actions works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the Next Zoom Meeting proxy object described below.
 
 Join Zoom Meeting
-  : This action is available for text. Enter a meeting ID, or any string that contains a meeting URL, and this action should be available to join the meeting.
-
-    Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s `zoommtg://` URL scheme, which bypasses your browser and opens directly in Zoom.
+  : Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s `zoommtg://` URL scheme, which bypasses your browser and opens directly in Zoom.
 
 ## Proxy Objects ##
 

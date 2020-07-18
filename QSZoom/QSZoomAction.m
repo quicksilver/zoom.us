@@ -42,20 +42,4 @@
 	return nil;
 }
 
-- (NSArray *)validActionsForDirectObject:(QSObject *)dObject indirectObject:(QSObject *)iObject
-{
-	NSString *meetingID = [dObject stringValue];
-	// is this a string of digits?
-	NSRegularExpression *digits = [NSRegularExpression regularExpressionWithPattern:@"^\\d+$" options:NSRegularExpressionAnchorsMatchLines error:nil];
-	NSUInteger matches = [digits numberOfMatchesInString:meetingID options:0 range:NSMakeRange(0, [meetingID length])];
-	if (!matches) {
-		// try to extract a meeting ID from the text
-		meetingID = meetingIDFromString(meetingID);
-		if (!meetingID) {
-			return nil;
-		}
-	}
-	return @[JoinMeetingWithIDAction];
-}
-
 @end
