@@ -19,5 +19,6 @@
 
 NSURL *zoomURLWithData(NSDictionary *meetingData);
 QSObject *objectFromEvent(EKEvent *event, NSDictionary *meetingData);
+NSURL *getRedirectURL(NSURL *url);
 NSDictionary *meetingDataFromString(NSString *sourceText);
 NSDictionary *meetingDataFromEvent(EKEvent *event);

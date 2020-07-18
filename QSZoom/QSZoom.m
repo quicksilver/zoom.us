@@ -53,11 +53,19 @@ NSDictionary *meetingDataFromString(NSString *sourceText) {
 		// looks like a Zoom URL
 		NSURL *meetingURL = [NSURL URLWithString:sourceText];
 		NSMutableDictionary *meetingData = [NSMutableDictionary dictionaryWithCapacity:3];
-		meetingData[kMeetingID]	 = [meetingURL lastPathComponent];
-		meetingData[kMeetingHost]  = [meetingURL host];
+		NSString *meetingID = [meetingURL lastPathComponent];
+		if ([meetingID integerValue] == 0) {
+			// non-numeric meeting ID; the redirect URL will contain the number
+			NSURL *realURL = getRedirectURL(meetingURL);
+			if (realURL) {
+				return meetingDataFromString([realURL absoluteString]);
+			}
+		}
+		meetingData[kMeetingID] = meetingID;
+		meetingData[kMeetingHost] = [meetingURL host];
 		NSString *query = [meetingURL query];
 		if (query) {
-			meetingData[kMeetingParams]	 = query;
+			meetingData[kMeetingParams] = query;
 		}
 		return meetingData;
 	}
@@ -80,6 +88,16 @@ NSDictionary *meetingDataFromEvent(EKEvent *event) {
 		if (meetingData) {
 			return meetingData;
 		}
+	}
+	return nil;
+}
+
+NSURL *getRedirectURL(NSURL *url) {
+	NSURLRequest *request = [NSURLRequest requestWithURL: url];
+	NSHTTPURLResponse *response;
+	[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+	if (response) {
+		return [response URL];
 	}
 	return nil;
 }
