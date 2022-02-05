@@ -18,7 +18,7 @@
 		D40604812231797600531D7E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		D4060483223179A200531D7E /* QSZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSZoom.h; sourceTree = "<group>"; };
 		D4098BDA2232C64E00F6AB8F /* QSZoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSZoom.m; sourceTree = "<group>"; };
-		D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zoom.us Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "zoom.us Plugin.bundle"; path = "zoom.us Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D434B7741FC8FFC7007AF9C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		D434B77F1FC8FFC7007AF9C3 /* QSZoomSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSZoomSource.h; sourceTree = "<group>"; };
 		D434B7801FC8FFC7007AF9C3 /* QSZoomSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSZoomSource.m; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		D434B7721FC8FFC7007AF9C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.qsplugin */,
+				D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,7 +108,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D434B7851FC8FFC7007AF9C3 /* Build configuration list for PBXNativeTarget "zoom.us Plugin" */;
 			buildPhases = (
-				D434B76C1FC8FFC7007AF9C3 /* ShellScript */,
 				D434B76D1FC8FFC7007AF9C3 /* Sources */,
 				D434B76E1FC8FFC7007AF9C3 /* Frameworks */,
 				D434B76F1FC8FFC7007AF9C3 /* Resources */,
@@ -119,7 +118,7 @@
 			);
 			name = "zoom.us Plugin";
 			productName = QSZoom;
-			productReference = D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.qsplugin */;
+			productReference = D434B7711FC8FFC7007AF9C3 /* zoom.us Plugin.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -163,22 +162,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D434B76C1FC8FFC7007AF9C3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "\"$QS_BUILD_ROOT/Tools/bltrversion\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D434B76D1FC8FFC7007AF9C3 /* Sources */ = {

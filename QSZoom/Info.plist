@@ -15,9 +15,9 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.0</string>
+	<string>2.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>A</string>
+	<string>C</string>
 	<key>QSActions</key>
 	<dict>
 		<key>QSZoomJoinMeeting</key>
